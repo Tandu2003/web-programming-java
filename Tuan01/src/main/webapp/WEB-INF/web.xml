@@ -3,4 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+    <context-param>
+        <param-name>contextMessage</param-name>
+        <param-value>This is a context-param message</param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>paramServlet</servlet-name>
+        <servlet-class>iuh.fit.se.tuan01.ParamServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>paramServlet</servlet-name>
+        <url-pattern>/param-servlet</url-pattern>
+    </servlet-mapping>
 </web-app>
