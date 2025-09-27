@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hệ thống đăng ký người dùng</title>
+    <title>Đăng ký thành công</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -13,36 +13,39 @@
         padding: 20px;
       }
       .container {
-        max-width: 600px;
+        max-width: 500px;
         margin: 0 auto;
         background: white;
-        padding: 40px;
+        padding: 30px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         text-align: center;
       }
       h1 {
+        color: #28a745;
+        margin-bottom: 20px;
+      }
+      .success-icon {
+        font-size: 60px;
+        color: #28a745;
+        margin-bottom: 20px;
+      }
+      .message {
+        font-size: 18px;
         color: #333;
         margin-bottom: 30px;
-      }
-      .description {
-        color: #666;
-        font-size: 16px;
-        margin-bottom: 40px;
-        line-height: 1.6;
       }
       .btn {
         background-color: #007bff;
         color: white;
-        padding: 15px 30px;
+        padding: 12px 30px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
         text-decoration: none;
         display: inline-block;
-        margin: 10px;
-        transition: background-color 0.3s;
+        margin: 5px;
       }
       .btn:hover {
         background-color: #0056b3;
@@ -53,45 +56,16 @@
       .btn-secondary:hover {
         background-color: #545b62;
       }
-      .features {
-        text-align: left;
-        margin: 30px 0;
-      }
-      .features h3 {
-        color: #333;
-        margin-bottom: 15px;
-      }
-      .features ul {
-        color: #666;
-        padding-left: 20px;
-      }
-      .features li {
-        margin-bottom: 8px;
-      }
     </style>
   </head>
   <body>
     <div class="container">
-      <h1>Hệ thống đăng ký người dùng</h1>
-
-      <div class="description">
-        Chào mừng bạn đến với hệ thống đăng ký người dùng được xây dựng bằng JSP
-        và Servlet theo mô hình MVC.
-      </div>
-
-      <div class="features">
-        <h3>Tính năng:</h3>
-        <ul>
-          <li>Đăng ký tài khoản người dùng mới</li>
-          <li>Xem danh sách tất cả người dùng</li>
-          <li>Xóa người dùng không cần thiết</li>
-          <li>Validation dữ liệu đầu vào</li>
-          <li>Giao diện thân thiện và responsive</li>
-        </ul>
-      </div>
+      <div class="success-icon">✓</div>
+      <h1>Thành công!</h1>
+      <div class="message">${message}</div>
 
       <a href="${pageContext.request.contextPath}/register" class="btn"
-        >Đăng ký người dùng mới</a
+        >Đăng ký thêm</a
       >
       <a
         href="${pageContext.request.contextPath}/users"
