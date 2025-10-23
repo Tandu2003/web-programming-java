@@ -1,0 +1,6 @@
+<Context>
+    <Resource name="jdbc/QLBenhnhan" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="root" password="1234567890" driverClassName="org.mariadb.jdbc.Driver"
+              url="jdbc:mariadb://localhost:3306/QLBenhnhan" URIEncoding="UTF-8"/>
+</Context>
