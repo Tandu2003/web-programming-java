@@ -93,21 +93,7 @@ src/
 
 ### 1. Cài đặt cơ sở dữ liệu
 
-**Cách 1: Sử dụng command line**
-```bash
-# Tạo database
-mysql -u root -p < src/create-database.sql
-
-# Chạy script chính
-mysql -u root -p QLBenhnhan < src/script.sql
-```
-
-**Cách 2: Sử dụng MySQL Workbench hoặc phpMyAdmin**
-1. Tạo database `QLBenhnhan`
-2. Copy và paste nội dung từ `src/script.sql` vào query editor
-3. Chạy script
-
-**Cách 3: Chạy từng bước**
+**Chạy từng bước**
 ```sql
 -- Bước 1: Tạo database
 CREATE DATABASE QLBenhnhan;
