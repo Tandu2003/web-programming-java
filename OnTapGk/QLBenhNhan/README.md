@@ -41,7 +41,7 @@ src/
 │       │   │   ├── benh-nhan-theo-khoa.jsp
 │       │   │   └── them-benh-nhan.jsp
 │       │   └── web.xml
-│       ├── META_INF/
+│       ├── META-INF/
 │       │   └── context.xml       # Database Configuration
 │       └── index.jsp             # Trang chủ
 └── script.sql                    # Database Script
@@ -105,34 +105,15 @@ USE QLBenhnhan;
 ```
 
 ### 2. Cấu hình database
-Chỉnh sửa file `src/main/webapp/META_INF/context.xml`:
+Chỉnh sửa file `src/main/webapp/META-INF/context.xml`:
 ```xml
-<Resource name="jdbc/QLBenhnhan" 
-          auth="Container" 
-          type="javax.sql.DataSource"
-          maxTotal="100" 
-          maxIdle="30" 
-          maxWaitMillis="10000"
-          username="root" 
-          password="your_password" 
-          driverClassName="org.mariadb.jdbc.Driver"
-          url="jdbc:mariadb://localhost:3306/QLBenhnhan" 
-          URIEncoding="UTF-8"/>
+<Context>
+    <Resource name="jdbc/QLBenhnhan" auth="Container" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+              username="root" password="1234567890" driverClassName="org.mariadb.jdbc.Driver"
+              url="jdbc:mariadb://localhost:3306/QLBenhnhan" URIEncoding="UTF-8"/>
+</Context>
 ```
-
-### 3. Build và deploy
-```bash
-# Build project
-mvn clean package
-
-# Deploy file WAR vào Tomcat
-cp target/QLBenhNhan-1.0-SNAPSHOT.war $TOMCAT_HOME/webapps/
-```
-
-### 4. Truy cập ứng dụng
-Mở trình duyệt và truy cập: `http://localhost:8080/QLBenhNhan-1.0-SNAPSHOT/`
-
-**Lưu ý**: Tất cả các link trong ứng dụng đã được cấu hình sử dụng `${pageContext.request.contextPath}` để tự động thích ứng với context path của ứng dụng, tránh lỗi khi deploy với tên khác nhau.
 
 ## Cấu trúc MVC
 
@@ -150,28 +131,9 @@ Mở trình duyệt và truy cập: `http://localhost:8080/QLBenhNhan-1.0-SNAPSH
 - **BenhNhanServlet**: Xử lý các request liên quan đến bệnh nhân
 - **KhoaServlet**: Xử lý các request liên quan đến khoa
 
-## Tính năng nổi bật
-
-1. **Giao diện đẹp**: Sử dụng CSS hiện đại với gradient và animation
-2. **Responsive**: Giao diện thích ứng với các kích thước màn hình khác nhau
-3. **Validation**: Kiểm tra dữ liệu đầu vào ở cả client và server
-4. **Error Handling**: Xử lý lỗi và hiển thị thông báo phù hợp
-5. **Search**: Tìm kiếm bệnh nhân theo tên với hỗ trợ tìm kiếm gần đúng
-6. **Filter**: Lọc bệnh nhân theo khoa điều trị
-
-## Hướng dẫn sử dụng
-
-1. Truy cập trang chủ để xem menu chính
-2. Sử dụng các chức năng:
-   - **Danh sách Bệnh nhân**: Xem tất cả bệnh nhân
-   - **Tìm kiếm**: Tìm bệnh nhân theo tên
-   - **Danh sách Khoa**: Xem thông tin các khoa
-   - **Bệnh nhân theo Khoa**: Lọc bệnh nhân theo khoa
-   - **Thêm Bệnh nhân**: Thêm bệnh nhân mới
-
 ## Lưu ý
 
-- Đảm bảo MariaDB/MySQL đang chạy
+- Đảm bảo MariaDB đang chạy
 - Cấu hình đúng thông tin database trong `context.xml`
 - Sử dụng Tomcat 11 và JDK 21
 - Kiểm tra các dependency trong `pom.xml`
